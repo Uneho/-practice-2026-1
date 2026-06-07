@@ -1,1 +1,1 @@
-/* === BLOCK SYSTEM — block-unit, settings panel === */
+/* Начало работы */
