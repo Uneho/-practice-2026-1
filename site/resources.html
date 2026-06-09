@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>alt — Ресурсы</title>
+</head>
+<body>
+  <aside class="sidebar"><div class="sidebar-header"><span class="logo-icon">⬡</span><span class="logo-text">alt</span></div><div class="nav-category">Разделы</div><nav class="sidebar-nav"><a href="index.html" class="nav-link "><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>Главная</a><a href="about.html" class="nav-link "><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>О проекте</a><a href="members.html" class="nav-link "><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Участники</a><a href="journal.html" class="nav-link "><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>Журнал</a><a href="resources.html" class="nav-link active"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>Ресурсы</a></nav><div class="sidebar-footer"><button class="reset-btn" onclick="resetBlocks()">↺ Сбросить вид</button></div></aside>
+  <div class="page-wrapper">
+    <div class="block-unit page-header" data-block-id="page-header">
+      <h1>Ресурсы</h1><p>Материалы, документация и инструменты проекта</p>
+    </div>
+    <div class="blocks-container">
+      <!-- Совет сверху -->
+      <div class="resource-tip">
+        <span class="tip-ico">💡</span>
+        <span>Начни с MDN Web Docs — это главный справочник веб-разработчика. Все браузерные API, HTML и CSS задокументированы там.</span>
+      </div>
+      <!-- Блоки 7+5 = 12 -->
+      <div class="block-unit" data-block-id="res-webdev">
+        <div class="resources-wrap">
+          <h2 class="section-title">Веб-разработка</h2>
+          <a class="resource-item" href="https://developer.mozilla.org" target="_blank" rel="noopener">
+            <div class="res-ico">📖</div>
+            <div class="res-info"><h3>MDN Web Docs</h3><p>Главный справочник по HTML, CSS и JavaScript от Mozilla.</p><div class="res-url">developer.mozilla.org</div></div>
+          </a>
+          <a class="resource-item" href="https://css-tricks.com" target="_blank" rel="noopener">
+            <div class="res-ico">🎨</div>
+            <div class="res-info"><h3>CSS-Tricks</h3><p>Практические руководства по современному CSS.</p><div class="res-url">css-tricks.com</div></div>
+          </a>
+          <a class="resource-item" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank" rel="noopener">
+            <div class="res-ico">💾</div>
+            <div class="res-info"><h3>localStorage API</h3><p>Хранение настроек между сессиями без сервера.</p><div class="res-url">MDN — localStorage</div></div>
+          </a>
+          <a class="resource-item" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout" target="_blank" rel="noopener">
+            <div class="res-ico">⬛</div>
+            <div class="res-info"><h3>CSS Grid Layout</h3><p>Двумерная сетка для раскладки интерфейса — основа нашего layout.</p><div class="res-url">MDN — CSS Grid</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="block-unit" data-block-id="res-design">
+        <div class="resources-wrap">
+          <h2 class="section-title">Дизайн</h2>
+          <a class="resource-item" href="https://figma.com" target="_blank" rel="noopener">
+            <div class="res-ico">🖌️</div>
+            <div class="res-info"><h3>Figma</h3><p>Прототипирование и согласование стиля в команде.</p><div class="res-url">figma.com</div></div>
+          </a>
+          <a class="resource-item" href="https://colorhunt.co" target="_blank" rel="noopener">
+            <div class="res-ico">🎨</div>
+            <div class="res-info"><h3>Color Hunt</h3><p>Кураторские цветовые палитры.</p><div class="res-url">colorhunt.co</div></div>
+          </a>
+          <a class="resource-item" href="https://fonts.google.com" target="_blank" rel="noopener">
+            <div class="res-ico">🔤</div>
+            <div class="res-info"><h3>Google Fonts</h3><p>Oxanium (заголовки) и IBM Plex Mono (текст).</p><div class="res-url">fonts.google.com</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <footer class="block-unit site-footer" data-block-id="footer"><span class="footer-logo">alt</span><span>Учебный проект · Проектная деятельность · 2026</span></footer>
+  </div>
+  <script src="js/blocks.js"></script>
+</body>
+</html>

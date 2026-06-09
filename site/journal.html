@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>alt — Журнал</title>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-header"><span class="logo-icon">⬡</span><span class="logo-text">alt</span></div>
+    <div class="nav-category">Разделы</div>
+    <nav class="sidebar-nav">
+      <a href="index.html"     class="nav-link"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>Главная</a>
+      <a href="about.html"     class="nav-link"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>О проекте</a>
+      <a href="members.html"   class="nav-link"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Участники</a>
+      <a href="journal.html"   class="nav-link active"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>Журнал</a>
+      <a href="resources.html" class="nav-link"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>Ресурсы</a>
+    </nav>
+    <div class="sidebar-footer"><button class="reset-btn" onclick="resetBlocks()">↺ Сбросить вид</button></div>
+  </aside>
+  <div class="page-wrapper">
+
+    <div class="block-unit page-header" data-block-id="page-header">
+      <h1>Журнал проекта</h1>
+      <p>Хронология: от первой идеи до реализации</p>
+    </div>
+
+    <!-- Горизонтальный таймлайн-обзор -->
+    <div class="blocks-container">
+      <div class="journal-timeline">
+        <div class="tl-item">
+          <div class="tl-dot">1</div>
+          <div class="tl-month">01 июня</div>
+          <div class="tl-label">Запуск</div>
+          <div class="tl-tag">Старт</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">2</div>
+          <div class="tl-month">04 июня</div>
+          <div class="tl-label">Дизайн</div>
+          <div class="tl-tag">UI/UX</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">3</div>
+          <div class="tl-month">07 июня</div>
+          <div class="tl-label">Разработка</div>
+          <div class="tl-tag">Dev</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ВЕРТИКАЛЬНЫЙ ТАЙМЛАЙН с блоками постов -->
+    <div class="journal-vt">
+
+      <!-- Пост 1 -->
+      <div class="vt-item">
+        <div class="vt-left">
+          <div class="vt-dot">1</div>
+          <div class="vt-line"></div>
+        </div>
+        <div class="vt-content">
+          <div class="block-unit post-block" data-block-id="post-1">
+            <div class="post-meta">
+              <span class="post-date">01 июня 2026</span>
+              <span class="post-tag">Старт</span>
+            </div>
+            <h2 class="post-title">Запуск проекта</h2>
+            <div class="post-body">
+              <p>Определили тему: мессенджер с блочным принципом построения интерфейса. Провели кик-офф встречу, распределили роли в команде из трёх человек.</p>
+              <p>Выбрали технологический стек — чистый HTML/CSS/JS без фреймворков. Создали файловую структуру, подключили шрифты Google Fonts: Oxanium для заголовков и IBM Plex Mono для текста.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Пост 2 -->
+      <div class="vt-item">
+        <div class="vt-left">
+          <div class="vt-dot">2</div>
+          <div class="vt-line"></div>
+        </div>
+        <div class="vt-content">
+          <div class="block-unit post-block" data-block-id="post-2">
+            <div class="post-meta">
+              <span class="post-date">04 июня 2026</span>
+              <span class="post-tag">Дизайн</span>
+            </div>
+            <h2 class="post-title">Цветовая система и макет</h2>
+            <div class="post-body">
+              <p>Разработана дизайн-система на CSS-переменных. Определены токены: <code>--bg-page</code>, <code>--accent</code>, цвета текста и рамок. Для каждого блока добавлены переменные <code>--block-bg</code>, <code>--block-accent</code> и <code>--block-text-color</code>.</p>
+              <p>Сформирована концепция кастомизатора: панель <strong>Стиль</strong> у каждого блока позволяет независимо настраивать цвета и шрифт.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Пост 3 -->
+      <div class="vt-item">
+        <div class="vt-left">
+          <div class="vt-dot">3</div>
+          <!-- нет .vt-line — последний элемент -->
+        </div>
+        <div class="vt-content">
+          <div class="block-unit post-block" data-block-id="post-3">
+            <div class="post-meta">
+              <span class="post-date">07 июня 2026</span>
+              <span class="post-tag">Разработка</span>
+            </div>
+            <h2 class="post-title">Начало разработки — реализация блочного интерфейса</h2>
+            <div class="post-body">
+              <p>Вёрстка всех пяти HTML-страниц завершена. Каждая секция оформлена как <code>.block-unit</code>. На каждой странице уникальная CSS Grid раскладка с разными пропорциями блоков.</p>
+              <p>Написан <code>blocks.js</code> с полной реализацией: кастомизатор цвета (фон, акцент, текст), шрифта и его размера через панель <strong>Стиль ⚙</strong>. Настройки хранятся в <code>localStorage</code> отдельно для каждой страницы.</p>
+              <p>Главная страница оформлена в виде дерева — блоки соединены CSS-линиями, отражая иерархию проекта. Журнал оформлен как вертикальная временная линия.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /journal-vt -->
+
+    <footer class="block-unit site-footer" data-block-id="footer">
+      <span class="footer-logo">alt</span>
+      <span>Учебный проект · Проектная деятельность · 2026</span>
+    </footer>
+
+  </div>
+  <script src="js/blocks.js"></script>
+</body>
+</html>
