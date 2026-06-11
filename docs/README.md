@@ -10,7 +10,7 @@
 
 ## Задание
 
-Задание размещено в папке **task** в файле [README.md](task/README.md).
+Задание размещено в папке **task** в файле [README.md](https://github.com/Uneho/-practice-2026-1/tree/main/task).
 
 ## Ответственный по проектной (учебной) практике
 
