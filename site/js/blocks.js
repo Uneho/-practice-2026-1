@@ -57,7 +57,7 @@ function createSettingsUI(block) {
 
   function applyBg(h)     { if (!isHex(h)) return; block.style.setProperty('--block-bg', h); block.style.background = h; block.dataset.currentBg = h; bgPicker.value = h; bgHex.value = h; save(); }
   function applyAccent(h) { if (!isHex(h)) return; block.style.setProperty('--block-accent', h); block.dataset.currentAccent = h; accentPicker.value = h; accentHex.value = h; save(); }
-  function applyText(h)   { if (!isHex(h)) return; block.style.setProperty('--block-text-color', h); block.dataset.currentText = h; textPicker.value = h; textHex.value = h; save(); }
+  function applyText(h)   { if (!isHex(h)) return; block.style.setProperty('--block-text-color', h); block.style.setProperty('--block-heading-color', h); block.dataset.currentText = h; textPicker.value = h; textHex.value = h; save(); }
 
   bgPicker.addEventListener('input',     () => applyBg(bgPicker.value));
   bgHex.addEventListener('input',        () => applyBg(bgHex.value));
@@ -68,6 +68,8 @@ function createSettingsUI(block) {
 
   fontSelect.addEventListener('change', () => {
     block.style.fontFamily = fontSelect.value || '';
+    if (fontSelect.value) block.style.setProperty('--block-heading-font', fontSelect.value);
+    else block.style.removeProperty('--block-heading-font');
     block.dataset.currentFont = fontSelect.value; save();
   });
 
@@ -224,8 +226,8 @@ function safeHex(h) { return isHex(h) ? h.trim() : '#0d0d2b'; }
 function applySettings(block, s) {
   if (s.bg)        { block.style.setProperty('--block-bg', s.bg);              block.style.background = s.bg; block.dataset.currentBg = s.bg; }
   if (s.accent)    { block.style.setProperty('--block-accent', s.accent);       block.dataset.currentAccent = s.accent; }
-  if (s.textColor) { block.style.setProperty('--block-text-color', s.textColor); block.dataset.currentText = s.textColor; }
-  if (s.font)      { block.style.fontFamily = s.font;    block.dataset.currentFont = s.font; }
+  if (s.textColor) { block.style.setProperty('--block-text-color', s.textColor); block.style.setProperty('--block-heading-color', s.textColor); block.dataset.currentText = s.textColor; }
+  if (s.font)      { block.style.fontFamily = s.font; block.style.setProperty('--block-heading-font', s.font); block.dataset.currentFont = s.font; }
   if (s.size)      { block.style.setProperty('--block-font-size', s.size + 'px'); block.dataset.currentSize = s.size; }
   if (s.bold)      { block.style.fontWeight = '700';     block.dataset.bold   = 'true'; }
   if (s.italic)    { block.style.fontStyle  = 'italic';  block.dataset.italic = 'true'; }
@@ -233,7 +235,7 @@ function applySettings(block, s) {
 
 function saveSettings() {
   const out = {};
-  document.querySelectorAll('.blocks-container .block-unit[data-block-id]').forEach(b => {
+  document.querySelectorAll('.block-unit[data-block-id]:not(.page-header):not(.site-footer)').forEach(b => {
     out[b.dataset.blockId] = {
       bg:        b.dataset.currentBg        || null,
       accent:    b.dataset.currentAccent    || null,
