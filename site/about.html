@@ -20,6 +20,7 @@
           <h2 class="section-title">Концепция</h2>
           <div class="body-text">
             <p>Основная идея — модульное построение интерфейса мессенджера. Каждая панель приложения является независимым визуальным блоком со своей цветовой схемой. Блоки могут настраиваться независимо друг от друга.</p>
+            <p>Alt разрабатывается как российская альтернатива Discord для IT-команд, онлайн-школ и игровых сообществ — аудитории, которая лишилась привычной среды постоянного общения после блокировки зарубежных сервисов.</p>
             <div class="highlight-box">💡 Вдохновением послужил Discord с его чётким делением на функциональные панели: серверы, каналы и область сообщений.</div>
           </div>
         </div>
@@ -29,10 +30,11 @@
           <h2 class="section-title">Технологии</h2>
           <div class="body-text">
             <ul class="item-list">
-              <li><strong>HTML5</strong> — семантика, data-атрибуты</li>
-              <li><strong>CSS3</strong> — переменные, grid, анимации</li>
-              <li><strong>Vanilla JS</strong> — DOM, localStorage, events</li>
-              <li><strong>Google Fonts</strong> — Oxanium, IBM Plex Mono</li>
+              <li><div><strong>Matrix</strong> — федеративный протокол для текстовых и голосовых каналов, основа self-hosted развёртывания</div></li>
+              <li><div><strong>WebRTC</strong> — голосовая связь с низкой задержкой</div></li>
+              <li><div><strong>ГОСТ-шифрование, КриптоПро</strong> — защита данных по требованиям РФ</div></li>
+              <li><div><strong>REST API</strong> — открытый интерфейс для ботов и интеграций</div></li>
+              <li><div><strong>2FA</strong> — двухфакторная аутентификация учётных записей</div></li>
             </ul>
           </div>
         </div>
@@ -73,12 +75,12 @@
         <div class="block-inner">
           <h2 class="section-title">Кастомизация блоков</h2>
           <div class="body-text">
-            <p>Каждый блок поддерживает полную настройку через панель <strong>Стиль</strong>: цвет фона, акцента и текста, семейство шрифта и его размер. Все настройки сохраняются в <code>localStorage</code> отдельно для каждой страницы.</p>
+            <p>Каждый блок поддерживает полную настройку через панель <strong>Стиль</strong>: цвет фона, акцента и текста, семейство шрифта и его размер. Расположение и размер блоков фиксированы — изменяется только их оформление. Все настройки сохраняются в <code>localStorage</code> отдельно для каждой страницы.</p>
           </div>
         </div>
       </div>
     </div>
-    <footer class="block-unit site-footer" data-block-id="footer"><span class="footer-logo">alt</span><span>Учебный проект · Проектная деятельность · 2026</span></footer>
+    <footer class="block-unit site-footer" data-block-id="footer"><span class="footer-logo">alt</span><span>Учебная практика · 2026</span></footer>
   </div>
   <script src="js/blocks.js"></script>
 </body>

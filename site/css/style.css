@@ -1,31 +1,31 @@
-/* шрифты: Oxanium для заголовков, IBM Plex Mono для текста */
+/* Подключаем шрифты: Oxanium для заголовков, IBM Plex Mono для текста */
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
 
-/* Переменные темы: применяется по всем */
+/* Общие переменные темы — используются во всех файлах сайта */
 :root {
   /* фоны */
-  --bg-page:            #06061a;   /* фон страницы */
-  --bg-block:           #0d0d2b;   /* фон обычного блока */
-  --bg-block-secondary: #12124a;   /* фон посветлее */
-  --bg-active:          #1a1a6e;   /* фон выделенного элемента */
+  --bg-page:            #06061a;
+  --bg-block:           #0d0d2b;
+  --bg-block-secondary: #12124a;   /* светлее основного фона блока */
+  --bg-active:          #1a1a6e;   /* фон выбранного элемента */
 
   /* акцентные цвета (кнопки, ссылки) */
-  --accent:             #4f46e5;   /* основной */
-  --accent-hover:       #6366f1;   /* для наведения */
+  --accent:             #4f46e5;
+  --accent-hover:       #6366f1;
 
   /* цвет рамок и разделителей */
   --border:             #2a2a7a;
 
   /* цвета текста */
-  --text-primary:       #e2e8f0;   /* основной светлый текст */
-  --text-secondary:     #94a3b8;   /* второстепенный текст */
-  --text-muted:         #475569;   /* текст */
+  --text-primary:       #e2e8f0;
+  --text-secondary:     #94a3b8;
+  --text-muted:         #475569;
 
   /* размеры макета */
-  --sidebar-width:  240px;         /* ширина бокового меню */
-  --radius:         8px;           /* скругление углов */
-  --transition:     0.2s ease;     /* скорость переходов */
+  --sidebar-width:  240px;       /* ширина бокового меню */
+  --radius:         8px;         /* скругление углов */
+  --transition:     0.2s ease;   /* скорость переходов */
 
   /* шрифты */
   --font-heading: 'Oxanium', monospace;
@@ -35,7 +35,7 @@
 
 /* Сброс отступов и базовые стили */
 
-/* Убираем у всех элементов лишние отступы и считаем размер вместе с рамкой */
+/* убираем у всех элементов лишние отступы и считаем размер вместе с рамкой */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -51,8 +51,8 @@ body {
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.65;
-  min-height: 100vh;   /* тянем на всю высоту экрана */
-  display: flex;       /* сайдбар и контент будут стоять в ряд */
+  min-height: 100vh;   /* высота на весь экран */
+  display: flex;       /* сайдбар и контент стоят в ряд */
 }
 
 /* ссылки без подчёркивания и цвета текста родителя */
@@ -87,8 +87,8 @@ code {
   background: var(--bg-block);
   border-right: 1px solid var(--border);
   display: flex;
-  flex-direction: column;   /* элементы в столбик */
-  position: fixed;          /* прилипает к экрану при прокрутке */
+  flex-direction: column;   /* пункты меню в столбик */
+  position: fixed;          /* остаётся на месте при прокрутке */
   top: 0;
   left: 0;
   z-index: 100;             /* поверх обычного контента */
@@ -108,7 +108,7 @@ code {
   height: 28px;
   object-fit: contain;
   border-radius: 6px;
-  flex-shrink: 0;   /* не сжимается */
+  flex-shrink: 0;   /* не сжимается рядом с текстом */
 }
 
 .logo-text {
@@ -135,7 +135,7 @@ code {
 
 /* список ссылок меню */
 .sidebar-nav {
-  flex: 1;            /* занимает всё свободное место */
+  flex: 1;            /* занимает всё свободное место по высоте */
   padding: 8px 10px;
   display: flex;
   flex-direction: column;
@@ -143,6 +143,7 @@ code {
   overflow-y: auto;   /* прокрутка, если ссылок много */
 }
 
+/* ссылка меню */
 .nav-link {
   display: flex;
   align-items: center;
@@ -151,7 +152,7 @@ code {
   color: var(--text-secondary);
   border-radius: 6px;
   font-size: 13px;
-  transition: background var(--transition), color var(--transition);
+  transition: background var(--transition), color var(--transition);   /* плавная смена фона и цвета */
 }
 
 /* ссылка при наведении мышкой */
@@ -172,7 +173,7 @@ code {
   font-size: 15px;
   width: 20px;
   text-align: center;
-  flex-shrink: 0;   /* не сжимается */
+  flex-shrink: 0;   /* не сжимается рядом с текстом */
 }
 
 /* низ меню с кнопкой сброса */
@@ -189,7 +190,7 @@ code {
   color: var(--text-muted);
   font-size: 11px;
   border-radius: 6px;
-  transition: all var(--transition);
+  transition: all var(--transition);   /* плавное наведение */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,7 +210,7 @@ code {
 /* обёртка контента — отодвигаем вправо, чтобы не залезала под меню */
 .page-wrapper {
   margin-left: var(--sidebar-width);
-  flex: 1;
+  flex: 1;            /* занимает всё место рядом с меню */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -230,9 +231,9 @@ code {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   position: relative;   /* чтобы кнопка «Стиль» позиционировалась внутри блока */
-  transition: border-color var(--transition), box-shadow var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition);   /* плавная подсветка при наведении/выборе */
   box-sizing: border-box;
-  animation: fadeUp 0.35s ease both;   /* плавное появление */
+  animation: fadeUp 0.35s ease both;   /* появление снизу вверх */
 }
 
 /* legacy: класс из убранного drag&drop, сейчас не навешивается */
@@ -309,13 +310,13 @@ code {
   align-items: center;
   gap: 5px;
   opacity: 0.75;
-  transition: opacity 0.15s, transform 0.2s;
+  transition: opacity 0.15s, transform 0.2s;   /* плавное появление и сдвиг */
   white-space: nowrap;   /* текст в одну строку */
 }
 
 .block-settings-btn .bsb-ico {
   display: inline-block;
-  transition: transform 0.35s ease;
+  transition: transform 0.35s ease;   /* плавный поворот иконки */
   font-style: normal;
 }
 
@@ -334,6 +335,7 @@ code {
   opacity: 1;
 }
 
+
 /* кнопка сброса в шапке панели настроек */
 .sp-reset-btn {
   background: transparent;
@@ -344,30 +346,14 @@ code {
   width: 24px; height: 24px;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: all var(--transition);
+  transition: all var(--transition);   /* плавное наведение */
 }
 .sp-reset-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-/* шапка панели настроек (с кнопкой сброса справа) */
-.sp-header {
-  padding: 11px 14px;
-  font-family: var(--font-heading);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  background: rgba(79, 70, 229, 0.08);
-  border-bottom: 1px solid rgba(79, 70, 229, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
 
 /* Панель настроек блока — позицию ей выставляет blocks.js */
 .settings-panel {
-  position: fixed;
+  position: fixed;   /* не зависит от прокрутки страницы */
   width: 264px;
   background: #09091f;
   border: 1px solid rgba(79, 70, 229, 0.35);
@@ -384,7 +370,7 @@ code {
   animation: fadeDown 0.15s ease;
 }
 
-/* заголовок панели */
+/* заголовок панели — текст слева, кнопка сброса справа */
 .sp-header {
   padding: 11px 14px;
   font-family: var(--font-heading);
@@ -395,6 +381,9 @@ code {
   color: var(--text-secondary);
   background: rgba(79, 70, 229, 0.08);
   border-bottom: 1px solid rgba(79, 70, 229, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* одна секция внутри панели */
@@ -439,16 +428,16 @@ code {
   padding: 2px;
   background: transparent;
   cursor: pointer;
-  flex-shrink: 0;   /* не сжимается */
+  flex-shrink: 0;   /* не сжимается рядом с полем ввода */
 }
-/* убираем стандартные рамки у самого образца цвета (для разных браузеров) */
+/* убираем стандартную рамку у образца цвета */
 .sp-color-picker::-webkit-color-swatch-wrapper { padding: 0; }
 .sp-color-picker::-webkit-color-swatch { border: none; border-radius: 3px; }
 .sp-color-picker::-moz-color-swatch { border: none; border-radius: 3px; }
 
 /* поле ввода цвета в виде hex (#xxxxxx) */
 .sp-hex-input {
-  flex: 1;
+  flex: 1;   /* занимает оставшееся место в строке рядом с .sp-color-picker */
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(79, 70, 229, 0.2);
   border-radius: 6px;
@@ -458,7 +447,7 @@ code {
   padding: 5px 8px;
   outline: none;
   letter-spacing: 0.06em;
-  transition: border-color var(--transition);
+  transition: border-color var(--transition);   /* плавная подсветка рамки */
 }
 /* подсветка рамки, когда поле в фокусе */
 .sp-hex-input:focus { border-color: var(--accent); }
@@ -475,7 +464,7 @@ code {
   padding: 6px 8px;
   outline: none;
   cursor: pointer;
-  transition: border-color var(--transition);
+  transition: border-color var(--transition);   /* плавная подсветка рамки */
   margin-bottom: 8px;
 }
 .sp-font-select:focus { border-color: var(--accent); }
@@ -500,7 +489,7 @@ code {
   margin-bottom: 8px;
   cursor: pointer;
 }
-/* кружок ползунка — отдельно для Chrome/Safari и для Firefox */
+/* кружок ползунка — стиль дублируется для разных браузеров */
 .sp-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 14px;
@@ -534,7 +523,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition);
+  transition: all var(--transition);   /* плавное наведение */
 }
 .sp-toggle:hover { border-color: var(--accent); color: var(--accent); }
 /* нажатая кнопка */
@@ -546,8 +535,8 @@ code {
 .sp-toggle b { font-style: normal; font-weight: 900; }
 .sp-toggle i { font-style: italic; font-weight: 400; }
 
-/* Ниже — заготовки под ширину колонок и выравнивание текста.
-   В текущей панели «Стиль» они не используются (не вызываются из blocks.js). */
+/* legacy: заготовки под ширину колонок и выравнивание текста — */
+/* в текущей панели «Стиль» не используются (не вызываются из blocks.js) */
 
 /* кнопки выбора ширины (¼ ½ ¾ ■) */
 .sp-col-btns {
@@ -565,7 +554,7 @@ code {
   color: var(--text-secondary);
   font-size: 13px;
   text-align: center;
-  transition: all var(--transition);
+  transition: all var(--transition);   /* плавное наведение */
   cursor: pointer;
 }
 .sp-col-btn:hover { border-color: var(--accent); color: var(--accent); }
@@ -592,7 +581,7 @@ code {
   font-size: 11px;
   text-align: center;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: all var(--transition);   /* плавное наведение */
 }
 .sp-preset-btn:hover { border-color: var(--accent); color: var(--accent); }
 .sp-preset-btn.active {
@@ -618,7 +607,7 @@ code {
   font-size: 14px;
   text-align: center;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: all var(--transition);   /* плавное наведение */
 }
 .sp-align-btn:hover { border-color: var(--accent); color: var(--accent); }
 .sp-align-btn.active {
@@ -636,6 +625,8 @@ code {
 
 /* Фича-блок: иконка + описание по центру */
 .feature-inner {
+  flex: 1;
+  justify-content: center;
   padding: 32px 22px;
   text-align: center;
   display: flex;
@@ -647,7 +638,7 @@ code {
 
 /* Декоративные вставки между блоками — это не .block-unit, поэтому без кнопки «Стиль» */
 
-/* строка со статистикой — сейчас не используется ни на одной странице */
+/* legacy: строка со статистикой — сейчас не используется ни на одной странице */
 .page-stats {
   grid-column: span 12;   /* на всю ширину сетки */
   display: flex;
@@ -657,7 +648,7 @@ code {
   background: var(--bg-block);
 }
 .page-stat {
-  flex: 1;
+  flex: 1;   /* все колонки одинаковой ширины */
   padding: 22px 16px;
   text-align: center;
   border-right: 1px solid var(--border);
@@ -692,7 +683,7 @@ code {
   border-radius: var(--radius);
 }
 .arch-panel {
-  flex: 1;
+  flex: 1;   /* все панели схемы одинаковой ширины */
   padding: 18px 12px;
   border-radius: 8px;
   border: 1px solid rgba(79, 70, 229, 0.55);
@@ -724,7 +715,7 @@ code {
   justify-content: space-between;
   align-items: flex-start;
   padding: 24px 48px;
-  position: relative;
+  position: relative;   /* точка отсчёта для линии-соединителя */
   background: var(--bg-block);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -744,8 +735,8 @@ code {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  position: relative;
-  z-index: 1;
+  position: relative;   /* чтобы быть поверх линии */
+  z-index: 1;           /* перекрывает линию из ::before */
 }
 .tl-dot {
   width: 26px; height: 26px;
@@ -802,25 +793,30 @@ code {
   height: 32px;
   background: var(--accent);
   opacity: 0.55;
-  flex-shrink: 0;
+  flex-shrink: 0;   /* не сжимается */
 }
 
 /* ряд дочерних блоков */
 .tree-row {
   display: flex;
   gap: 20px;
-  align-items: flex-start;
+  align-items: stretch;
   width: 100%;
 }
 
 /* одна колонка в дереве */
 .tree-col {
-  flex: 1;
+  flex: 1;   /* по умолчанию все колонки одинаковой ширины */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.tree-col .block-unit { width: 100%; }
+.tree-col .block-unit { 
+  width: 100%; 
+  height: 100%; 
+  display: flex; 
+  flex-direction: column;
+}
 .tree-col-wide   { flex: 8; }   /* широкая колонка */
 .tree-col-narrow { flex: 4; }   /* узкая колонка */
 
@@ -828,7 +824,7 @@ code {
 .tc-row {
   display: flex;
   justify-content: space-around;
-  position: relative;
+  position: relative;   /* точка отсчёта для линии из ::before */
   width: 100%;
 }
 /* горизонтальная линия для 3 веток */
@@ -855,7 +851,7 @@ code {
 }
 /* вертикальная веточка вниз к каждому блоку */
 .tc-branch {
-  flex: 1;
+  flex: 1;   /* ветки растягиваются на всю ширину строки */
   display: flex;
   justify-content: center;
 }
@@ -886,7 +882,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
+  flex-shrink: 0;   /* не сжимается */
   width: 48px;
 }
 
@@ -903,14 +899,14 @@ code {
   font-weight: 800;
   font-size: 16px;
   color: var(--accent);
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
+  flex-shrink: 0;       /* не сжимается */
+  position: relative;   /* чтобы быть поверх линии */
+  z-index: 1;           /* перекрывает .vt-line */
 }
 
 /* линия от кружка вниз к следующему кружку */
 .vt-line {
-  flex: 1;
+  flex: 1;   /* тянется на всю оставшуюся высоту между кружками */
   width: 2px;
   background: var(--border);
   margin: 6px 0;
@@ -918,7 +914,7 @@ code {
 }
 
 .vt-content {
-  flex: 1;
+  flex: 1;   /* занимает всё место справа от кружков */
   padding-bottom: 24px;
 }
 
@@ -927,7 +923,7 @@ code {
 .vt-item:last-child .vt-line { display: none; }
 
 
-/* legacy: функцию перетаскивания убрали, эти классы сейчас не навешиваются */
+/* legacy: функцию перетаскивания блоков убрали, эти классы сейчас не навешиваются */
 .block-unit[draggable="true"] { cursor: grab; }
 .block-unit[draggable="true"]:active { cursor: grabbing; }
 .block-unit.dragging { opacity: 0.4; }
@@ -985,7 +981,7 @@ code {
 /* заголовок секции с цветной полоской слева */
 .section-title {
   font-family: var(--block-heading-font);
-  font-size: calc(var(--block-font-size, 13px) + 5px);
+  font-size: calc(var(--block-font-size, 13px) + 5px);   /* чуть крупнее текста блока */
   font-weight: 700;
   color: var(--block-heading-color);
   margin-bottom: 18px;
@@ -1003,10 +999,10 @@ code {
   height: 20px;
   background: var(--block-accent);
   border-radius: 2px;
-  flex-shrink: 0;
+  flex-shrink: 0;   /* не сжимается */
 }
 
-/* обычный текст в блоках */
+/* обычный текст в блоках; запасной цвет — если не задан в панели «Стиль» */
 .body-text {
   font-size: var(--block-font-size, 13px);
   color: var(--block-text-color, var(--text-secondary));
@@ -1050,7 +1046,7 @@ code {
   content: '▸';
   color: var(--block-accent);
   font-size: 10px;
-  flex-shrink: 0;
+  flex-shrink: 0;   /* не сжимается */
   margin-top: 4px;
 }
 
@@ -1059,15 +1055,15 @@ code {
 .hero-block {
   padding: 58px 40px 52px;
   text-align: center;
-  position: relative;
-  /* overflow: hidden НЕ ставим — иначе обрезается кнопка-шестерёнка */
+  position: relative;   /* точка отсчёта для свечения из ::before */
+  /* overflow: hidden не ставим — иначе обрежется кнопка-шестерёнка */
 }
 
 /* мягкое цветное свечение на фоне */
 .hero-block::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: 0;   /* растягиваем на весь блок */
   background: radial-gradient(ellipse 65% 55% at 50% 0%,
     rgba(79, 70, 229, 0.09) 0%, transparent 70%);
   pointer-events: none;   /* не мешает кликам */
@@ -1091,7 +1087,7 @@ code {
 
 .hero-title {
   font-family: var(--block-heading-font);
-  font-size: calc(var(--block-font-size, 13px) + 43px);
+  font-size: calc(var(--block-font-size, 13px) + 43px);   /* крупный заголовок-герой */
   font-weight: 800;
   line-height: 1.06;
   margin-bottom: 18px;
@@ -1099,7 +1095,8 @@ code {
   color: var(--block-heading-color);
 }
 
-.hero-title .accent { color: var(--block-accent); }   /* класс .accent в HTML не проставлен — правило не срабатывает */
+/* legacy: класс .accent в HTML не проставлен — правило не срабатывает */
+.hero-title .accent { color: var(--block-accent); }
 
 .hero-sub {
   font-size: var(--block-font-size, 12px);
@@ -1146,7 +1143,7 @@ code {
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  transition: border-radius var(--transition), background var(--transition);
+  transition: border-radius var(--transition), background var(--transition);   /* плавная смена формы и фона */
   cursor: pointer;
 }
 /* активный/наведённый сервер слегка квадратится и подсвечивается */
@@ -1181,7 +1178,7 @@ code {
   align-items: center;
   gap: 5px;
   cursor: pointer;
-  transition: color var(--transition), background var(--transition);
+  transition: color var(--transition), background var(--transition);   /* плавная смена цвета и фона */
 }
 
 .demo-ch:hover { color: var(--text-primary); background: var(--bg-block-secondary); }
@@ -1189,7 +1186,7 @@ code {
 
 /* основная область с сообщениями */
 .demo-main {
-  flex: 1;
+  flex: 1;   /* занимает всё оставшееся место */
   background: var(--bg-page);
   padding: 14px;
   display: flex;
@@ -1207,7 +1204,7 @@ code {
   border-radius: 50%;
   background: var(--bg-active);
   border: 1px solid var(--border);
-  flex-shrink: 0;
+  flex-shrink: 0;   /* не сжимается */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1217,7 +1214,7 @@ code {
   color: var(--text-secondary);
 }
 
-.demo-msg-body { flex: 1; }
+.demo-msg-body { flex: 1; }   /* занимает всё место рядом с аватаркой */
 .demo-msg-name {
   font-size: 11px;
   color: var(--accent);
@@ -1227,7 +1224,7 @@ code {
 .demo-msg-text { font-size: 11px; color: var(--text-secondary); }
 
 
-/* старая сетка фич — не используется, фичи теперь в .tree-row/.tree-col */
+/* legacy: старая сетка фич — не используется, фичи теперь в .tree-row/.tree-col */
 .features-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1256,7 +1253,7 @@ code {
 
 /* members.html — карточки участников */
 
-/* сетка карточек — не используется, members.html сидит на .blocks-container */
+/* legacy: сетка карточек — не используется, members.html сидит на .blocks-container */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1362,7 +1359,7 @@ code {
   border-radius: 6px;
   border: 1px solid transparent;
   margin-bottom: 12px;
-  transition: background var(--transition), border-color var(--transition);
+  transition: background var(--transition), border-color var(--transition);   /* плавная смена фона и рамки */
   color: inherit;
 }
 
@@ -1414,7 +1411,7 @@ code {
 .footer-logo em { color: var(--accent); font-style: normal; }
 
 
-/* Свой тонкий скроллбар (работает в Chrome/Safari) */
+/* Свой тонкий скроллбар (поддерживается не во всех браузерах) */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg-page); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
