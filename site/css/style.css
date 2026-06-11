@@ -2,18 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
 
-/* Переменные. Записываем сюда цвета и размеры один раз, */
-/* а дальше берём их через var(...). Если поменять тут — поменяется везде. */
+/* Переменные темы: применяется по всем */
 :root {
   /* фоны */
-  --bg-page:            #06061a;   /* самый тёмный фон страницы */
+  --bg-page:            #06061a;   /* фон страницы */
   --bg-block:           #0d0d2b;   /* фон обычного блока */
-  --bg-block-secondary: #12124a;   /* фон чуть посветлее */
+  --bg-block-secondary: #12124a;   /* фон посветлее */
   --bg-active:          #1a1a6e;   /* фон выделенного элемента */
 
-  /* акцентные цвета (кнопки, ссылки и т.п.) */
-  --accent:             #4f46e5;   /* основной фиолетово-синий */
-  --accent-hover:       #6366f1;   /* он же, но светлее (для наведения) */
+  /* акцентные цвета (кнопки, ссылки) */
+  --accent:             #4f46e5;   /* основной */
+  --accent-hover:       #6366f1;   /* для наведения */
 
   /* цвет рамок и разделителей */
   --border:             #2a2a7a;
@@ -21,12 +20,12 @@
   /* цвета текста */
   --text-primary:       #e2e8f0;   /* основной светлый текст */
   --text-secondary:     #94a3b8;   /* второстепенный текст */
-  --text-muted:         #475569;   /* совсем приглушённый текст */
+  --text-muted:         #475569;   /* текст */
 
   /* размеры макета */
   --sidebar-width:  240px;         /* ширина бокового меню */
   --radius:         8px;           /* скругление углов */
-  --transition:     0.2s ease;     /* скорость плавных переходов */
+  --transition:     0.2s ease;     /* скорость переходов */
 
   /* шрифты */
   --font-heading: 'Oxanium', monospace;
@@ -121,7 +120,7 @@ code {
   color: var(--text-primary);
 }
 
-/* выделенная часть логотипа другим цветом */
+/* выделенная часть логотипа другим цветом, без курсива <em> */
 .logo-text em { color: var(--accent); font-style: normal; }
 
 /* подпись-категория над группой ссылок */
@@ -173,7 +172,7 @@ code {
   font-size: 15px;
   width: 20px;
   text-align: center;
-  flex-shrink: 0;
+  flex-shrink: 0;   /* не сжимается */
 }
 
 /* низ меню с кнопкой сброса */
@@ -217,10 +216,9 @@ code {
 }
 
 
-/* Блок (block-unit) — главный кирпичик интерфейса. */
-/* Все секции страницы обёрнуты в .block-unit. */
+/* Блок-секция — обёртка для каждой панели контента на странице */
 .block-unit {
-  /* свои переменные блока — их может менять панель настроек */
+  /* переменные блока, их меняет панель «Стиль» */
   --block-bg:            var(--bg-block);
   --block-accent:        var(--accent);
   --block-font-size:     13px;
@@ -231,12 +229,13 @@ code {
   background: var(--block-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  position: relative;
+  position: relative;   /* чтобы кнопка «Стиль» позиционировалась внутри блока */
   transition: border-color var(--transition), box-shadow var(--transition);
   box-sizing: border-box;
   animation: fadeUp 0.35s ease both;   /* плавное появление */
 }
 
+/* legacy: класс из убранного drag&drop, сейчас не навешивается */
 .block-unit.dragging { opacity: 0.85; }
 
 /* подсветка рамки при наведении */
@@ -244,9 +243,9 @@ code {
   border-color: var(--block-accent);
 }
 
-/* активный блок: открыта панель настроек или блок тащат */
+/* активный блок — открыта панель «Стиль» */
 .block-unit.block-active {
-  border-color: var(--block-accent) !important;
+  border-color: var(--block-accent) !important;   /* перебивает border-color из :hover */
   box-shadow: 0 0 0 1px var(--block-accent), 0 0 28px -4px var(--block-accent);
   outline: none;
 }
@@ -305,7 +304,7 @@ code {
   font-weight: 700;
   letter-spacing: 0.07em;
   cursor: pointer;
-  z-index: 10;
+  z-index: 10;   /* поверх содержимого блока */
   display: flex;
   align-items: center;
   gap: 5px;
@@ -329,6 +328,7 @@ code {
 /* крутим иконку-шестерёнку при наведении */
 .block-settings-btn:hover .bsb-ico { transform: rotate(60deg); }
 
+/* при открытой панели кнопка всегда видна полностью */
 .block-unit.block-active .block-settings-btn {
   background: var(--block-accent);
   opacity: 1;
@@ -365,15 +365,14 @@ code {
 }
 
 
-/* Панель настроек блока. */
-/* Появляется поверх страницы; её позицию задаёт blocks.js. */
+/* Панель настроек блока — позицию ей выставляет blocks.js */
 .settings-panel {
   position: fixed;
   width: 264px;
   background: #09091f;
   border: 1px solid rgba(79, 70, 229, 0.35);
   border-radius: 12px;
-  z-index: 1000;
+  z-index: 1000;   /* поверх сайдбара и любых блоков */
   display: none;   /* по умолчанию скрыта */
   box-shadow: 0 20px 56px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.03);
   overflow: hidden;
@@ -440,7 +439,7 @@ code {
   padding: 2px;
   background: transparent;
   cursor: pointer;
-  flex-shrink: 0;
+  flex-shrink: 0;   /* не сжимается */
 }
 /* убираем стандартные рамки у самого образца цвета (для разных браузеров) */
 .sp-color-picker::-webkit-color-swatch-wrapper { padding: 0; }
@@ -547,6 +546,9 @@ code {
 .sp-toggle b { font-style: normal; font-weight: 900; }
 .sp-toggle i { font-style: italic; font-weight: 400; }
 
+/* Ниже — заготовки под ширину колонок и выравнивание текста.
+   В текущей панели «Стиль» они не используются (не вызываются из blocks.js). */
+
 /* кнопки выбора ширины (¼ ½ ¾ ■) */
 .sp-col-btns {
   display: grid;
@@ -643,10 +645,9 @@ code {
 }
 
 
-/* Декоративные вставки между блоками. */
-/* Это НЕ .block-unit, а просто украшения для разнообразия. */
+/* Декоративные вставки между блоками — это не .block-unit, поэтому без кнопки «Стиль» */
 
-/* строка со статистикой (страница index) */
+/* строка со статистикой — сейчас не используется ни на одной странице */
 .page-stats {
   grid-column: span 12;   /* на всю ширину сетки */
   display: flex;
@@ -783,8 +784,7 @@ code {
 .tip-ico { font-size: 20px; flex-shrink: 0; }
 
 
-/* Раскладка «дерево» на главной. */
-/* Блоки соединяются линиями, как ветки дерева. */
+/* Раскладка «дерево» на главной — блоки соединены линиями-ветками */
 .tree-layout {
   padding: 28px 40px;
   display: flex;
@@ -869,8 +869,7 @@ code {
 }
 
 
-/* Вертикальный таймлайн журнала. */
-/* Блоки соединены линией, рядом с каждым — кружок. */
+/* Вертикальный таймлайн журнала — кружки и линия слева от постов */
 .journal-vt {
   padding: 0 40px 28px;
   display: flex;
@@ -928,11 +927,10 @@ code {
 .vt-item:last-child .vt-line { display: none; }
 
 
-/* Перетаскивание блоков — классы для разных состояний */
+/* legacy: функцию перетаскивания убрали, эти классы сейчас не навешиваются */
 .block-unit[draggable="true"] { cursor: grab; }
 .block-unit[draggable="true"]:active { cursor: grabbing; }
 .block-unit.dragging { opacity: 0.4; }
-/* блок, над которым сейчас тащат другой */
 .block-unit.drag-over {
   border-style: dashed;
   border-color: var(--accent);
@@ -940,8 +938,7 @@ code {
 }
 
 
-/* Контейнер блоков — сетка из 12 колонок. */
-/* Разные блоки занимают разное число колонок (см. ниже). */
+/* Контейнер блоков — сетка 12 колонок, ширину каждого блока задают правила ниже */
 .blocks-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -1102,7 +1099,7 @@ code {
   color: var(--block-heading-color);
 }
 
-.hero-title .accent { color: var(--block-accent); }
+.hero-title .accent { color: var(--block-accent); }   /* класс .accent в HTML не проставлен — правило не срабатывает */
 
 .hero-sub {
   font-size: var(--block-font-size, 12px);
@@ -1230,7 +1227,7 @@ code {
 .demo-msg-text { font-size: 11px; color: var(--text-secondary); }
 
 
-/* index.html — сетка с фичами */
+/* старая сетка фич — не используется, фичи теперь в .tree-row/.tree-col */
 .features-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1259,7 +1256,7 @@ code {
 
 /* members.html — карточки участников */
 
-/* сетка карточек: подстраивается под ширину */
+/* сетка карточек — не используется, members.html сидит на .blocks-container */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
