@@ -1411,7 +1411,7 @@ code {
 .footer-logo em { color: var(--accent); font-style: normal; }
 
 
-/* Свой тонкий скроллбар (поддерживается не во всех браузерах) */
+/* Свой тонкий скроллбар (проблемы с лисой) */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg-page); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
